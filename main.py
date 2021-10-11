@@ -6,7 +6,7 @@ __version__ = '1.0.0'
 def main(word: str) -> str:
     """Main function that start project. Iterate file with most common words and finding most similar words."""
     if not word.isalpha():
-        raise TypeError('Word must contain only chars')
+        raise ValueError('Word must contain only chars')
     entry_limit = 0.75
     with open('most_common_words.txt', 'r') as file:
         lines = tuple(map(str.strip, file))
