@@ -8,7 +8,8 @@ def main(word: str) -> str:
     if not word.isalpha():
         raise ValueError('Word must contain only chars')
     entry_limit = 0.75
-    with open('most_common_words.txt', 'r') as file:
+    path = r'C:\Users\User\PycharmProjects\my_auto_complection\most_common_words.txt'
+    with open(path, 'r') as file:
         lines = tuple(map(str.strip, file))
         if word in lines:
             return f'{word!r} is correct word'
