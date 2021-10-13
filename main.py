@@ -1,8 +1,20 @@
-"""Auto complete with dynamic program method."""
+"""Auto-complete with dynamic program method."""
 
 __version__ = '1.0.0'
 
+import argparse
 from random import shuffle
+
+
+def create_parser() -> argparse.ArgumentParser:
+    """Create parser that processes command-line parameters."""
+    parser = argparse.ArgumentParser(
+        prog='auto-complete',
+        description="""Auto-complete performed using dynamic program method with command line support.""",
+        epilog=f"""auto-complete {__version__} - (C) October 2021 Quimorax"""
+    )
+    parser.add_argument('-w', '--word')
+    return parser
 
 
 def main(word: str) -> str:
@@ -37,5 +49,10 @@ def find_longest_total_sequence(user_word: str, file_word: str) -> int:
 
 
 if __name__ == '__main__':
-    word = input('Enter some word: ')
+    parser = create_parser()
+    namespace = parser.parse_args()
+    if namespace.word is None:
+        word = input('Enter some word: ')
+    else:
+        word = namespace.word
     print(main(word))
