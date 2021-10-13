@@ -10,7 +10,7 @@ def test_small_words():
 
 
 def test_middle_len_words():
-    user_word, word_user_mean = 'respomse', 'response'
+    user_word, word_user_mean = 'resonse', 'response'
     similarity = find_longest_total_sequence(user_word, word_user_mean) / len(word_user_mean)
     assert main(user_word) == f'Maybe you mean {word_user_mean!r} ({similarity:.2%})?'
 
