@@ -13,7 +13,7 @@ def create_parser() -> argparse.ArgumentParser:
         description="""Auto-complete performed using dynamic program method with command line support.""",
         epilog=f"""auto-complete {__version__} - (C) October 2021 Quimorax"""
     )
-    parser.add_argument('-w', '--word')
+    parser.add_argument('-w', '--word', help='Contain word that will be send to main function.')
     return parser
 
 
