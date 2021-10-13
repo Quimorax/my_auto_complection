@@ -2,6 +2,8 @@
 
 __version__ = '1.0.0'
 
+from random import shuffle
+
 
 def main(word: str) -> str:
     """Main function that start project. Iterate file with most common words and finding most similar words."""
@@ -10,7 +12,8 @@ def main(word: str) -> str:
     entry_limit = 0.75
     path = r'C:\Users\User\PycharmProjects\my_auto_complection\most_common_words.txt'
     with open(path, 'r') as file:
-        lines = tuple(map(str.strip, file))
+        lines = list(map(str.strip, file))
+        shuffle(lines)  # for non-alphabet iterate
         if word in lines:
             return f'{word!r} is correct word'
         for file_word in lines:
