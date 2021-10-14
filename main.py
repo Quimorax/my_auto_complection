@@ -3,7 +3,8 @@
 __version__ = '1.0.0'
 
 import argparse
-import pickle
+
+from pickle_utilities import get_dict
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -54,19 +55,6 @@ def find_longest_total_sequence(user_word: str, file_word: str) -> int:
             else:
                 matrix[i][j] = max(matrix[i - 1][j], matrix[i][j - 1])
     return max(similarity for list_ in matrix for similarity in list_)
-
-
-def save_dict(filename: str, words: dict) -> None:
-    """Save dictionary with pickle."""
-    with open(filename, 'wb') as file:
-        pickle.dump(words, file)
-
-
-def get_dict(filename: str) -> dict:
-    """Get dictionary with pickle."""
-    with open(filename, 'rb') as file:
-        words = pickle.load(file)
-    return words
 
 
 if __name__ == '__main__':
