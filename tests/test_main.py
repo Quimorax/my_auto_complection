@@ -21,5 +21,10 @@ def test_longest_words():
     assert main(user_word) == f'Maybe you mean {word_user_mean!r} ({similarity:.2%})?'
 
 
+def test_no_one_word():
+    user_input = 'hmekololo'
+    assert main(user_input) == f'No one word {user_input!r}'
+
+
 if __name__ == '__main__':
     pytest.main()
