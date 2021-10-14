@@ -1,6 +1,4 @@
-"""Auto-complete with dynamic program method.
-
-"""
+"""Auto-complete with dynamic program method."""
 
 __version__ = '1.0.0'
 
@@ -20,8 +18,9 @@ def create_parser() -> argparse.ArgumentParser:
 
 
 def main(word: str) -> str:
-    """Main function that start project. Iterate dictionary with most common words and finding most similar words.
-    Dictionary is small, only 3000 words, so the function fully avoids it for maximum accuracy.
+    """Main function that start project. Iterate dictionary with most common words
+    and finding most similar words. Dictionary is small, only 3000 words, so the
+    function fully avoids it for maximum accuracy, but the productivity dropped a little.
 
     Raises:
         ValueError: If words contain not only chars.
@@ -58,11 +57,13 @@ def find_longest_total_sequence(user_word: str, file_word: str) -> int:
 
 
 def save_dict(filename: str, words: dict) -> None:
+    """Save dictionary with pickle."""
     with open(filename, 'wb') as file:
         pickle.dump(words, file)
 
 
 def get_dict(filename: str) -> dict:
+    """Get dictionary with pickle."""
     with open(filename, 'rb') as file:
         words = pickle.load(file)
     return words
